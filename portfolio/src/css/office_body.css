@@ -1,4 +1,4 @@
-.all-office-body {
+.office-body {
   width: 100%;
   align-items: center;
   display: flex;
@@ -17,7 +17,7 @@
 .header-terminal-office-body {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  height: 6%;
+  height: 50px;
   background-color: rgb(36, 40, 41);
   display: flex;
   align-items: center;
@@ -63,6 +63,11 @@
   border-radius: 100%;
   height: 40%;
   margin-right: 20px;
+}
+.terminal_content {
+  width: 100%;
+  height: inherit;
+  display: flex;
 }
 /* .right-square-icon-header-terminal-office-body {
     display: flex;

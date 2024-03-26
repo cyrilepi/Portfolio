@@ -1,5 +1,3 @@
-// components/GitHubProjects.js
-
 import React, { useEffect, useState } from 'react';
 import { Octokit } from '@octokit/rest';
 

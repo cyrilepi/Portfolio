@@ -6,25 +6,30 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
 .top-office-footer {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;  
 }
+
 .top-office-footer > img {
   height: 50px;
   width: 50px;
   margin-bottom: 20px;
 }
+
 .icon-terminal-office-footer {
     border-radius: 35%;
 }
+
 .bottom-office-footer {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
+
 .activity-img-office-footer {
   height: 50px;
   width: 50px;

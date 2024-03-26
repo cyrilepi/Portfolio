@@ -1,8 +1,9 @@
+import FirstTextTerminal from "./FirstTextTerminal";
 import "../css/office_body.css";
 
 export default function OfficeBody() {
   return (
-    <div className="all-office-body">
+    <div className="office-body">
       <div className="terminal-office-body">
         <div className="header-terminal-office-body">
           <div className="blblbl">
@@ -43,8 +44,8 @@ export default function OfficeBody() {
             />
           </div>
         </div>
-        <div className="main-terminal-office-body">
-          
+        <div className="terminal_content">
+          <FirstTextTerminal />
         </div>
       </div>
     </div>
