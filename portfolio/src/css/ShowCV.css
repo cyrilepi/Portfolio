@@ -1,0 +1,6 @@
+.show-cv {
+    max-height: 300px; /* Ajustez la hauteur maximale selon vos besoins */
+    overflow-y: auto; /* Permet le défilement vertical si le contenu dépasse la hauteur */
+    padding: 10px;
+  }
+  

@@ -1,13 +1,11 @@
 import "../css/firstTextTerminal.css";
 import { useEffect } from "react";
 
-export default function FirstTextTerminal() {
-  let data =
-    "<span>Bonjour et bienvenue sur mon Portfolio.<br/><br/>Afin de vous garantir la meilleure expérience possible, j'ai besoin d'une seule information. Avez vous déjà utilisé un terminal ?</span><br/><br/><span>Pour me répondre, il vous suffit de taper oui ou non dans le terminal et de présser la touche entrée.</span>";
+export default function FirstTextTerminal({texte}) {
 
   useEffect(() => {
     let whiteBlinker = document.getElementById("white_blinker");
-    let content = data;
+    let content = texte;
     let element = document.getElementById("textAnimation");
     let i = 0,
       stopCondition,

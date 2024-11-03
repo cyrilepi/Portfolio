@@ -13,6 +13,8 @@
   border: 1px solid black;
   font-weight: 600;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
 }
 .header-terminal-office-body {
   border-top-right-radius: 10px;
@@ -22,7 +24,6 @@
   display: flex;
   align-items: center;
   color: white;
-  width: 100%;
   border-bottom: 1px solid black;
 }
 .blblbl {
@@ -66,9 +67,31 @@
 }
 .terminal_content {
   width: 100%;
-  height: inherit;
+  flex: 1;
   display: flex;
+  flex-direction: column;
 }
+
+/* office_body.css */
+.terminal-output {
+  flex: 1;
+  color: #ffffff; /* Couleur du texte de terminal */
+  font-family: monospace;
+}
+
+.terminal-input {
+  color: #ffffff;
+  font-family: monospace;
+}
+
+.terminal-input input {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: monospace;
+  outline: none;
+}
+
 /* .right-square-icon-header-terminal-office-body {
     display: flex;
     align-items: center;
