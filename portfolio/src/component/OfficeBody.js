@@ -102,7 +102,7 @@ export default function OfficeBody() {
         <div className="terminal_content">
           <div className="terminal-output">
             {showAnimation ? (
-              <ShowText texte="<span>Bonjour et bienvenue sur mon Portfolio.<br/><br/>Je suis un étudiant en quête de devenir développeur web. Ma rencontre avec l'école Epitech fut décisive en ce sens, et ce Portfolio retrace mon parcours au sein de celle-ci. <br/><br/><span>Pour accéder à l'ensemble de mes projets, il vous suffit de taper projets et d'appuyer sur entrée.</span>" />
+              <ShowText texte="<span>Bonjour et bienvenue sur mon Portfolio.<br/><br/>Je suis un étudiant en quête de devenir développeur web. Ma rencontre avec l'école Epitech fut décisive en ce sens, et ce Portfolio retrace mon parcours au sein de celle-ci. <br/><br/><span>Pour accéder à l'ensemble de mes projets, il vous suffit de taper projets et d'appuyer sur entrée.</br></br>Si vous souhaitez me contacter :</br></br>Adresse mail : cyril.ledieu@epitech.eu</br><a href='https://www.linkedin.com/in/cyril-ledieu-1a725226a/'>Linkedin</a></span>" />
             ) : (
               <ShowText texte={terminalContent[0]} />
             )}
