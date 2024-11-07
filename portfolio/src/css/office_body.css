@@ -70,6 +70,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow: scroll;
 }
 
 /* office_body.css */
@@ -81,7 +82,6 @@
 
 .terminal-input {
   color: #ffffff;
-  font-family: monospace;
 }
 
 .terminal-input input {
@@ -90,6 +90,16 @@
   color: #ffffff;
   font-family: monospace;
   outline: none;
+}
+
+.cv-container {
+  max-width: 100%;
+  max-height: 600px;
+  overflow: auto;
+}
+
+.cv-image {
+  width: 100%;
 }
 
 /* .right-square-icon-header-terminal-office-body {

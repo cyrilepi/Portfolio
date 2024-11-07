@@ -1,7 +1,7 @@
 import "../css/firstTextTerminal.css";
 import { useEffect } from "react";
 
-export default function FirstTextTerminal({texte}) {
+export default function ShowText({texte}) {
 
   useEffect(() => {
     let whiteBlinker = document.getElementById("white_blinker");
@@ -22,7 +22,7 @@ export default function FirstTextTerminal({texte}) {
       if (char === "<") stopCondition = true;
       if (char === ">") stopCondition = false;
       if (stopCondition) return animationText();
-      setTimeout(animationText, 30);
+      setTimeout(animationText, 15);
     })();
   });
 

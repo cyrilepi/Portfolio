@@ -1,21 +1,9 @@
 import TerminalInput from "./TeminalInput";
 import ShowText from "./FirstTextTerminal";
+import { handleProjectsCommand } from './ShowProjects';
 import { useState } from "react";
 import "../css/office_body.css";
 import "../css/ShowCV.css";
-
-async function fetchGitHubProjects() {
-  const response = await fetch("https://api.github.com/users/cyrilepi/repos");
-  if (!response.ok) {
-    throw new Error("Erreur lors de la récupération des projets GitHub");
-  }
-  const repos = await response.json();
-  return repos.map((repo) => ({
-    name: repo.name,
-    description: repo.description,
-    url: repo.html_url,
-  }));
-}
 
 export default function OfficeBody() {
   const [terminalContent, setTerminalContent] = useState([]);
@@ -27,34 +15,51 @@ export default function OfficeBody() {
 
     switch (command.toLowerCase()) {
       case "projets":
-        try {
-          const projects = await fetchGitHubProjects();
-          newTextContent = "Mes projets : <br>"
-          newContent = projects.length
-            ? projects.map((project, index) => (
-                <div key={index}>
-                  <a href={project.url} target="_blank" rel="noopener noreferrer">
-                    {project.name}
-                  </a>
-                  <p>{project.description || "Aucune description disponible"}</p>
-                </div>
-              ))
-            : "Aucun projet disponible.";
-        } catch (error) {
-          newTextContent = "Erreur lors de la récupération des projets.";
-        }
+        const projectsData = await handleProjectsCommand();
+        newTextContent = projectsData.newTextContent;
+        newContent = projectsData.newContent;
         break;
-      case "présentation":
-        newTextContent = "";
+      case "presentation":
+        newTextContent = `<span>tapez "commandes" pour afficher la liste des commandes.
+        <br><br>J'ai eu mon premier ordinateur dans les mains à l'âge de douze ans.
+        <br><br>Rapidement, j'ai développé une passion pour le jeu vidéo et ma première étincelle de curiosité pour l'informatique en général en démontant les composants d'une tour.
+        <br><br>Ma route à croisé celle de la web@cademie en .... et la découverte du développement informatique fut révélateur, cherchant la voie que j'allais emprunter dans ce domaine.
+        <br><br>Celui-ci correspond particulièrement à mes appétences, étant assez féru des défis de l'intellect et curieux de comprendre les coulisses de ce monde. J'aurais pu, dans une autre vie, m'orienter vers la Biologie.</span>`;
         break;
+      case "accueil":
+        newTextContent = `<span>Bonjour et bienvenue sur mon Portfolio.
+              <br><br>Je suis un jeune développeur web et ce Portfolio vous permettra de retracer mon parcours et d'en savoir plus sur moi et mes compétences.
+              <br><br>Pour utiliser le terminal Linux dont vous êtes en train de lire le contenu, vous devrez taper à l'aide de votre clavier une commande et appuyer sur la touche Entrée. L'entrée textuelle se trouve en bas du terminal, juste à droite du texte [cyril@ledieu-portfilio:~$].
+              <br><br>Voici la liste des commandes disponibles :
+              <br><br>- accueil : Reviens à cette interface d'accueil.
+              <br>- presentation : Présentation.
+              <br>- CV : Affiche mon CV.
+              <br>- projets : Affiche mes projets publiés sur GitHub.
+              <br>- commandes : Affiche la liste des commandes.</span>`
+        break;
+        case "cv":
+          newTextContent = `tapez "commandes" pour afficher la liste des commandes.<br><br>Mon CV :<br>`;
+          newContent = (
+            <div className="cv-container">
+              <img alt="CV" src="/CV Ledieu Cyril.png" className="cv-image" />
+            </div>
+          )
+          break;
+        case "commandes":
+        newTextContent = `<span>Liste des commandes :
+        <br><br>- accueil : Revenir à cette interface d'accueil.
+        <br>- presentation : Présentation.
+        <br>- CV : Affiche mon CV.
+        <br>- projets : Afficher mes projets publiés sur GitHub.
+        <br>- commandes : Affiche la liste des commandes.</span>`
+          break;
       default:
         newTextContent = `Commande non reconnue : ${command} `;
-        newContent = "";
         break;
     }
 
-      setTerminalContent([newTextContent, newContent]);
-      setShowAnimation(false); // Arrête d'afficher l'animation après la première commande
+    setTerminalContent([newTextContent, newContent]);
+    setShowAnimation(false);
   };
 
   return (
@@ -102,7 +107,15 @@ export default function OfficeBody() {
         <div className="terminal_content">
           <div className="terminal-output">
             {showAnimation ? (
-              <ShowText texte="<span>Bonjour et bienvenue sur mon Portfolio.<br/><br/>Je suis un étudiant en quête de devenir développeur web. Ma rencontre avec l'école Epitech fut décisive en ce sens, et ce Portfolio retrace mon parcours au sein de celle-ci. <br/><br/><span>Pour accéder à l'ensemble de mes projets, il vous suffit de taper projets et d'appuyer sur entrée.</br></br>Si vous souhaitez me contacter :</br></br>Adresse mail : cyril.ledieu@epitech.eu</br><a href='https://www.linkedin.com/in/cyril-ledieu-1a725226a/'>Linkedin</a></span>" />
+              <ShowText texte="<span>Bonjour et bienvenue sur mon Portfolio.
+              <br><br>Je suis un jeune développeur web et ce Portfolio vous permettra de retracer mon parcours et d'en savoir plus sur moi et mes compétences.
+              <br><br>Pour utiliser le terminal Linux dont vous êtes en train de lire le contenu, vous devrez taper à l'aide de votre clavier une commande et appuyer sur la touche Entrée. L'entrée textuelle se trouve en bas du terminal, juste à droite du texte [cyril@ledieu-portfilio:~$].
+              <br><br>Voici la liste des commandes disponibles :
+              <br><br>- accueil : Reviens à cette interface d'accueil.
+              <br>- presentation : Présentation.
+              <br>- CV : Affiche mon CV.
+              <br>- projets : Affiche mes projets publiés sur GitHub.
+              <br>- commandes : Affiche la liste des commandes.</span>" />
             ) : (
               <ShowText texte={terminalContent[0]} />
             )}
