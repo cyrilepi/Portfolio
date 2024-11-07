@@ -29,7 +29,7 @@ export default function OfficeBody() {
       case "accueil":
         newTextContent = `<span>Bonjour et bienvenue sur mon Portfolio.
               <br><br>Je suis un jeune développeur web et ce Portfolio vous permettra de retracer mon parcours et d'en savoir plus sur moi et mes compétences.
-              <br><br>Pour utiliser le terminal Linux dont vous êtes en train de lire le contenu, vous devrez taper à l'aide de votre clavier une commande et appuyer sur la touche Entrée. L'entrée textuelle se trouve en bas du terminal, juste à droite du texte [cyril@ledieu-portfilio:~$].
+              <br><br>Pour utiliser le terminal Linux dont vous êtes en train de lire le contenu, vous devrez taper à l'aide de votre clavier une commande et appuyer sur la touche Entrée. L'entrée textuelle se trouve en bas du terminal, juste à droite du texte [cyril@ledieu-portfolio:~$].
               <br><br>Voici la liste des commandes disponibles :
               <br><br>- accueil : Reviens à cette interface d'accueil.
               <br>- presentation : Présentation.
@@ -109,7 +109,7 @@ export default function OfficeBody() {
             {showAnimation ? (
               <ShowText texte="<span>Bonjour et bienvenue sur mon Portfolio.
               <br><br>Je suis un jeune développeur web et ce Portfolio vous permettra de retracer mon parcours et d'en savoir plus sur moi et mes compétences.
-              <br><br>Pour utiliser le terminal Linux dont vous êtes en train de lire le contenu, vous devrez taper à l'aide de votre clavier une commande et appuyer sur la touche Entrée. L'entrée textuelle se trouve en bas du terminal, juste à droite du texte [cyril@ledieu-portfilio:~$].
+              <br><br>Pour utiliser le terminal Linux dont vous êtes en train de lire le contenu, vous devrez taper à l'aide de votre clavier une commande et appuyer sur la touche Entrée. L'entrée textuelle se trouve en bas du terminal, juste à droite du texte [cyril@ledieu-portfolio:~$].
               <br><br>Voici la liste des commandes disponibles :
               <br><br>- accueil : Reviens à cette interface d'accueil.
               <br>- presentation : Présentation.
